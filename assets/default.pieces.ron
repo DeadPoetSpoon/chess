@@ -1,0 +1,388 @@
+PiecesInfos(
+    pieces_info_vec:[
+        (
+            des:(
+                name:"White Rook",
+                des:"White Rook",
+                help:"White Rook",
+            ),
+            color:White,
+            kind:Rook,
+            row:0,
+            col:0,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Knight",
+                des:"White Knight",
+                help:"White Knight",
+            ),
+            color:White,
+            kind:Knight,
+            row:0,
+            col:1,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Bishop",
+                des:"White Bishop",
+                help:"White Bishop",
+            ),
+            color:White,
+            kind:Bishop,
+            row:0,
+            col:2,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Queen",
+                des:"White Queen",
+                help:"White Queen",
+            ),
+            color:White,
+            kind:Queen,
+            row:0,
+            col:3,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White King",
+                des:"White King",
+                help:"White King",
+            ),
+            color:White,
+            kind:King,
+            row:0,
+            col:4,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Bishop",
+                des:"White Bishop",
+                help:"White Bishop",
+            ),
+            color:White,
+            kind:Bishop,
+            row:0,
+            col:5,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Knight",
+                des:"White Knight",
+                help:"White Knight",
+            ),
+            color:White,
+            kind:Knight,
+            row:0,
+            col:6,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Rook",
+                des:"White Rook",
+                help:"White Rook",
+            ),
+            color:White,
+            kind:Rook,
+            row:0,
+            col:7,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:0,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:1,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:2,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:3,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:4,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:5,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:6,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"White Pawn",
+                des:"White Pawn",
+                help:"White Pawn",
+            ),
+            color:White,
+            kind:Pawn,
+            row:1,
+            col:7,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Rook",
+                des:"Black Rook",
+                help:"Black Rook",
+            ),
+            color:Black,
+            kind:Rook,
+            row:7,
+            col:0,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Knight",
+                des:"Black Knight",
+                help:"Black Knight",
+            ),
+            color:Black,
+            kind:Knight,
+            row:7,
+            col:1,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Bishop",
+                des:"Black Bishop",
+                help:"Black Bishop",
+            ),
+            color:Black,
+            kind:Bishop,
+            row:7,
+            col:2,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Queen",
+                des:"Black Queen",
+                help:"Black Queen",
+            ),
+            color:Black,
+            kind:Queen,
+            row:7,
+            col:3,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black King",
+                des:"Black King",
+                help:"Black King",
+            ),
+            color:Black,
+            kind:King,
+            row:7,
+            col:4,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Bishop",
+                des:"Black Bishop",
+                help:"Black Bishop",
+            ),
+            color:Black,
+            kind:Bishop,
+            row:7,
+            col:5,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Knight",
+                des:"Black Knight",
+                help:"Black Knight",
+            ),
+            color:Black,
+            kind:Knight,
+            row:7,
+            col:6,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Rook",
+                des:"Black Rook",
+                help:"Black Rook",
+            ),
+            color:Black,
+            kind:Rook,
+            row:7,
+            col:7,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:0,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:1,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:2,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:3,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:4,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:5,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:6,
+            theme:"default"
+        ),
+        (
+            des:(
+                name:"Black Pawn",
+                des:"Black Pawn",
+                help:"Black Pawn",
+            ),
+            color:Black,
+            kind:Pawn,
+            row:6,
+            col:7,
+            theme:"default"
+        ),
+    ]
+)
