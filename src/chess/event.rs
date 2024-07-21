@@ -1,7 +1,4 @@
-use bevy::{
-    prelude::*,
-    window::{self, PrimaryWindow},
-};
+use bevy::{prelude::*, window::PrimaryWindow};
 
 use super::{component::Position, GameState};
 pub fn move_mouse_events_system(
@@ -20,13 +17,12 @@ pub fn move_mouse_events_system(
                     let row = (mouse_position.y as i32 / 128) as u8;
                     let col = (mouse_position.x as i32 / 128) as u8;
                     if game_state.selected_position.is_none() {
-                        game_state.selected_position = Some(Position{row,col});
-                    }else {
+                        game_state.selected_position = Some(Position { row, col });
+                    } else {
                         let position = game_state.selected_position.as_mut().unwrap();
                         position.col = col;
                         position.row = row;
                     }
-                    
                 }
             }
         }

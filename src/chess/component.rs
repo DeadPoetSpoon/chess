@@ -1,19 +1,19 @@
-use std::fmt::Display;
-use serde::{Deserialize, Serialize};
 use bevy::prelude::*;
-#[derive(Component,Default,Clone, Serialize, Deserialize)]
+use serde::{Deserialize, Serialize};
+use std::fmt::Display;
+#[derive(Component, Default, Clone, Serialize, Deserialize)]
 pub struct Description {
-    pub name:String,
-    pub des:String,
-    pub help:String,
+    pub name: String,
+    pub des: String,
+    pub help: String,
 }
 
-#[derive(Default,Debug,Clone, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub enum ChessColorKind {
     #[default]
     White,
     Black,
-    Gray
+    Gray,
 }
 
 impl Display for ChessColorKind {
@@ -26,21 +26,18 @@ impl Display for ChessColorKind {
     }
 }
 
-
-
-#[derive(Component,Default)]
+#[derive(Component, Default)]
 pub struct ChessColor {
-    pub kind:ChessColorKind
+    pub kind: ChessColorKind,
 }
 
-#[derive(Component,Default,Debug,PartialEq,Clone)]
+#[derive(Component, Default, Debug, PartialEq, Clone)]
 pub struct Position {
-    pub row:u8,
-    pub col:u8,
+    pub row: u8,
+    pub col: u8,
 }
 
-
-#[derive(Default,Debug,Clone, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Serialize, Deserialize)]
 pub enum PiecesKind {
     #[default]
     King,
@@ -64,17 +61,15 @@ impl Display for PiecesKind {
     }
 }
 
-#[derive(Component,Default,Debug)]
+#[derive(Component, Default, Debug)]
 pub struct Pieces {
-    pub kind:PiecesKind,
-    pub selected:bool,
+    pub kind: PiecesKind,
+    pub selected: bool,
 }
 
-#[derive(Component,Default)]
-pub struct Board {
-    pub invalid:bool,
-}
-#[derive(Component,Default)]
+#[derive(Component, Default)]
+pub struct Board {}
+#[derive(Component, Default)]
 pub struct Theme {
-    pub asset_father_path:String,
+    pub asset_father_path: String,
 }

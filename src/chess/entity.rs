@@ -1,7 +1,7 @@
 use super::component::*;
 use bevy::prelude::*;
 
-#[derive(Bundle,Default)]
+#[derive(Bundle, Default)]
 pub struct PiecesEntity {
     pub pieces: Pieces,
     pub color: ChessColor,

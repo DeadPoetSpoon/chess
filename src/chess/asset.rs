@@ -1,9 +1,5 @@
 use bevy::{
-    asset::{
-        io::Reader,
-        ron,
-        AssetLoader, AsyncReadExt,  LoadContext,
-    },
+    asset::{io::Reader, ron, AssetLoader, AsyncReadExt, LoadContext},
     prelude::*,
     reflect::TypePath,
     utils::{thiserror, BoxedFuture},
@@ -11,29 +7,25 @@ use bevy::{
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-
 use super::component::{ChessColorKind, Description, PiecesKind};
 
-#[derive(Asset, TypePath,Default, Serialize, Deserialize)]
+#[derive(Asset, TypePath, Default, Serialize, Deserialize)]
 pub struct PiecesInfos {
-    pub pieces_info_vec: Vec<PiecesInfo>
+    pub pieces_info_vec: Vec<PiecesInfo>,
 }
 
-#[derive(Asset, TypePath,Default, Serialize, Deserialize)]
-pub struct GameSetting {
-    // pub pieces_info_vec: Vec<PiecesInfo>
-}
+#[derive(Asset, TypePath, Default, Serialize, Deserialize)]
+pub struct GameSetting {}
 
 #[derive(Default, Serialize, Deserialize)]
 pub struct PiecesInfo {
     pub des: Description,
-    pub color:ChessColorKind,
-    pub kind:PiecesKind,
-    pub row:u8,
-    pub col:u8,
-    pub theme:String,
+    pub color: ChessColorKind,
+    pub kind: PiecesKind,
+    pub row: u8,
+    pub col: u8,
+    pub theme: String,
 }
-
 
 #[derive(Debug, Error)]
 pub enum AssetLoaderError {
@@ -75,11 +67,8 @@ impl AssetLoader for GameSettingLoader {
     }
 }
 
-
 #[derive(Default)]
 pub struct PiecesInfosLoader;
-
-
 
 impl AssetLoader for PiecesInfosLoader {
     type Asset = PiecesInfos;
