@@ -6,11 +6,13 @@ mod resource;
 mod system;
 
 use asset::*;
-use bevy::app::Plugin;
-use bevy::prelude::*;
 use event::*;
 use resource::*;
 use system::*;
+
+use bevy::app::Plugin;
+use bevy::prelude::*;
+
 pub struct ChessPlugin {}
 
 impl Plugin for ChessPlugin {
@@ -18,6 +20,7 @@ impl Plugin for ChessPlugin {
         app.init_asset::<PiecesInfos>()
             .init_asset::<GameSetting>()
             .init_asset_loader::<PiecesInfosLoader>()
+            .init_asset_loader::<GameSettingLoader>()
             .init_resource::<GameState>()
             .add_systems(Startup, startup_system)
             .add_systems(First, create_pieces_system)

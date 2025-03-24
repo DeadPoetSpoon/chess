@@ -4,8 +4,8 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-bevy = { version = "0.13.2", features = ["asset_processor", "dynamic_linking", "file_watcher"] }
-serde = { version = "1.0.201", features = ["serde_derive"] }
+bevy = { version = "*", features = ["asset_processor", "dynamic_linking", "file_watcher"] }
+serde = { version = "*", features = ["serde_derive"] }
 
 
 # Enable a small amount of optimization in debug mode

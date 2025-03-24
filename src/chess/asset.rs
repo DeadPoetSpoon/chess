@@ -8,14 +8,13 @@ use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
 use super::component::{ChessColorKind, Description, PiecesKind};
+#[derive(Asset, TypePath, Default, Serialize, Deserialize)]
+pub struct GameSetting {}
 
 #[derive(Asset, TypePath, Default, Serialize, Deserialize)]
 pub struct PiecesInfos {
     pub pieces_info_vec: Vec<PiecesInfo>,
 }
-
-#[derive(Asset, TypePath, Default, Serialize, Deserialize)]
-pub struct GameSetting {}
 
 #[derive(Default, Serialize, Deserialize)]
 pub struct PiecesInfo {

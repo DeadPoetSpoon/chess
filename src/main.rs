@@ -2,7 +2,7 @@
 //!
 //! - [Why this ?]
 //!
-//! [Why this ?]: https://deadpoetspoon.github.io/a-poor-imitation/blog/lesson-one/
+//! [Why this ?]: https://deadpoetspoon.github.io/a-poor-imitation/blog/chess/one/
 mod chess;
 
 use bevy::prelude::*;
