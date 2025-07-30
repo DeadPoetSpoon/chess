@@ -60,6 +60,7 @@ pub fn startup_system(
     game_state.game_setting_handle = assets.load("default.setting.ron");
     game_state.game_setting_has_load = true;
     game_state.pieces_infos_handle = assets.load("default.pieces.ron");
+    game_state.current_turn = ChessColorKind::White;
     commands.spawn_batch(create_board_bundles());
 }
 
