@@ -1,8 +1,7 @@
 use bevy::{
-    asset::{io::Reader, ron, AssetLoader, AsyncReadExt, LoadContext},
+    asset::{io::Reader, ron, AssetLoader, LoadContext},
     prelude::*,
     reflect::TypePath,
-    utils::{thiserror, BoxedFuture},
 };
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
@@ -49,18 +48,16 @@ impl AssetLoader for GameSettingLoader {
 
     type Error = AssetLoaderError;
 
-    fn load<'a>(
-        &'a self,
-        reader: &'a mut Reader,
-        _settings: &'a Self::Settings,
-        _load_context: &'a mut LoadContext,
-    ) -> BoxedFuture<'a, Result<Self::Asset, Self::Error>> {
-        Box::pin(async move {
-            let mut bytes = Vec::new();
-            reader.read_to_end(&mut bytes).await?;
-            let ron = ron::de::from_bytes(&bytes)?;
-            Ok(ron)
-        })
+    async fn load(
+        &self,
+        reader: &mut dyn Reader,
+        _settings: &(),
+        _load_context: &mut LoadContext<'_>,
+    ) -> Result<Self::Asset, Self::Error> {
+        let mut bytes = Vec::new();
+        reader.read_to_end(&mut bytes).await?;
+        let ron = ron::de::from_bytes(&bytes)?;
+        Ok(ron)
     }
     fn extensions(&self) -> &[&str] {
         &["setting.ron"]
@@ -75,18 +72,16 @@ impl AssetLoader for PiecesInfosLoader {
     type Settings = ();
     type Error = AssetLoaderError;
 
-    fn load<'a>(
-        &'a self,
-        reader: &'a mut Reader,
-        _settings: &'a Self::Settings,
-        _load_context: &'a mut LoadContext,
-    ) -> BoxedFuture<'a, Result<Self::Asset, Self::Error>> {
-        Box::pin(async move {
-            let mut bytes = Vec::new();
-            reader.read_to_end(&mut bytes).await?;
-            let ron = ron::de::from_bytes(&bytes)?;
-            Ok(ron)
-        })
+    async fn load(
+        &self,
+        reader: &mut dyn Reader,
+        _settings: &Self::Settings,
+        _load_context: &mut LoadContext<'_>,
+    ) -> Result<Self::Asset, Self::Error> {
+        let mut bytes = Vec::new();
+        reader.read_to_end(&mut bytes).await?;
+        let ron = ron::de::from_bytes(&bytes)?;
+        Ok(ron)
     }
 
     fn extensions(&self) -> &[&str] {

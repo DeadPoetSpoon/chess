@@ -47,20 +47,16 @@ pub fn startup_system(
     assets: Res<AssetServer>,
 ) {
     game_state.current_turn = ChessColorKind::White;
-    commands.spawn(Camera2dBundle {
-        transform: Transform::from_translation(Vec3 {
-            x: 450.0,
-            y: 450.0,
-            z: 0.0,
+    commands.spawn((
+        Name::new("Camera"),
+        Camera2d::default(),
+        Projection::Orthographic(OrthographicProjection {
+            scaling_mode: ScalingMode::WindowSize,
+            scale: 1.2,
+            ..OrthographicProjection::default_2d()
         }),
-        projection: OrthographicProjection {
-            scaling_mode: ScalingMode::WindowSize(0.8f32),
-            near: -1000.0,
-            far: 1000.0,
-            ..Default::default()
-        },
-        ..Default::default()
-    });
+        Transform::from_xyz(450.0, 450.0, 0.0),
+    ));
     game_state.game_setting_handle = assets.load("default.setting.ron");
     game_state.game_setting_has_load = true;
     game_state.pieces_infos_handle = assets.load("default.pieces.ron");
@@ -119,7 +115,7 @@ pub fn show_pieces_system(
         &Theme,
         &Position,
         &mut Transform,
-        &mut Handle<Image>,
+        &mut Sprite,
         &mut Visibility,
     )>,
     asset_server: Res<AssetServer>,
@@ -130,7 +126,7 @@ pub fn show_pieces_system(
         } else {
             transform.translation.x = position.col as f32 * 128.0;
             transform.translation.y = position.row as f32 * 128.0;
-            *texture = asset_server.load(format!(
+            texture.image = asset_server.load(format!(
                 "{}/{}/{}.png",
                 theme.asset_father_path, color.kind, pieces.kind
             ));
@@ -145,14 +141,14 @@ pub fn show_board_system(
         &Theme,
         &Position,
         &mut Transform,
-        &mut Handle<Image>,
+        &mut Sprite,
     )>,
     asset_server: Res<AssetServer>,
 ) {
     for (_board, color, theme, position, mut transform, mut texture) in &mut query {
         transform.translation.x = position.col as f32 * 128.0;
         transform.translation.y = position.row as f32 * 128.0;
-        *texture = asset_server.load(format!(
+        texture.image = asset_server.load(format!(
             "{}/{}/board.png",
             theme.asset_father_path, color.kind
         ));
