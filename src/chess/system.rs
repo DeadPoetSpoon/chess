@@ -191,7 +191,9 @@ pub fn move_pieces_system(
                         game_state.move_position = None;
                         return;
                     } else {
-                        color.kind = ChessColorKind::Gray;
+                        if color.kind != game_state.current_turn {
+                            color.kind = ChessColorKind::Gray;
+                        }
                     }
                 }
             }
