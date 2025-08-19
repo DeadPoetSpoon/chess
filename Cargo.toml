@@ -4,6 +4,7 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
+accesskit = { version = "0.18", default-features = false }
 bevy = { version = "0.16.0", features = [
     "asset_processor",
     "dynamic_linking",

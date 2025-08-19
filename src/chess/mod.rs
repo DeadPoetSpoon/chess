@@ -22,7 +22,7 @@ impl Plugin for ChessPlugin {
             .init_asset_loader::<PiecesInfosLoader>()
             .init_asset_loader::<GameSettingLoader>()
             .init_resource::<GameState>()
-            .add_systems(Startup, startup_system)
+            .add_systems(Startup, (startup_system, ui_startup_system))
             .add_systems(First, create_pieces_system)
             .add_systems(First, show_board_system)
             .add_systems(First, show_pieces_system)

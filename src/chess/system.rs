@@ -2,6 +2,8 @@ use super::asset::*;
 use super::component::*;
 use super::entity::*;
 use super::resource::*;
+use accesskit::{Node as Accessible, Role};
+use bevy::a11y::AccessibilityNode;
 use bevy::prelude::*;
 use bevy::render::camera::ScalingMode;
 use bevy::sprite::Anchor;
@@ -41,6 +43,82 @@ pub fn create_board_bundles() -> Vec<BoardEntity> {
     bundles
 }
 
+pub fn ui_startup_system(mut commands: Commands) {
+    commands.spawn((
+        Name::new("ui_turn"),
+        Text::new("Current Turn: White"),
+        TextFont {
+            font_size: 20.0,
+            ..Default::default()
+        },
+        Node {
+            position_type: PositionType::Absolute,
+            top: Val::Px(100.0),
+            left: Val::Px(200.0),
+            ..Default::default()
+        },
+    ));
+    commands.spawn((
+        Node {
+            top: Val::Px(170.0),
+            left: Val::Px(200.0),
+            ..Default::default()
+        },
+        Text::new("Step:"),
+    ));
+    commands.spawn((
+        Name::new("ui_steps"),
+        Node {
+            flex_direction: FlexDirection::Column,
+            justify_content: JustifyContent::Start,
+            align_items: AlignItems::Start,
+            align_self: AlignSelf::Stretch,
+            overflow: Overflow::scroll(),
+            width: Val::Px(400.0),
+            height: Val::Px(550.0),
+            left: Val::Px(200.0),
+            top: Val::Px(200.0),
+            ..Default::default()
+        },
+        BackgroundColor(Color::srgb(0.1, 0.1, 0.1)),
+        children![(
+            Node {
+                min_height: Val::Px(22.0),
+                max_height: Val::Px(22.0),
+                ..default()
+            },
+            children![(
+                Text(format!("Not Start")),
+                Label,
+                AccessibilityNode(Accessible::new(Role::ListItem)),
+            ),],
+        ),],
+    ));
+    commands.spawn((
+        Button,
+        Node {
+            width: Val::Px(150.0),
+            height: Val::Px(65.0),
+            left: Val::Px(200.0),
+            top: Val::Px(800.0),
+            border: UiRect::all(Val::Px(5.0)),
+            // horizontally center child text
+            justify_content: JustifyContent::Center,
+            // vertically center child text
+            align_items: AlignItems::Center,
+            ..default()
+        },
+        BorderColor(Color::WHITE),
+        BorderRadius::all(Val::Px(10.0)),
+        BackgroundColor(Color::BLACK),
+        children![(
+            Text::new("Close"),
+            TextColor(Color::srgb(0.9, 0.9, 0.9)),
+            TextShadow::default(),
+        )],
+    ));
+}
+
 pub fn startup_system(
     mut commands: Commands,
     mut game_state: ResMut<GameState>,
@@ -48,14 +126,13 @@ pub fn startup_system(
 ) {
     game_state.current_turn = ChessColorKind::White;
     commands.spawn((
-        Name::new("Camera"),
         Camera2d::default(),
         Projection::Orthographic(OrthographicProjection {
             scaling_mode: ScalingMode::WindowSize,
             scale: 1.2,
             ..OrthographicProjection::default_2d()
         }),
-        Transform::from_xyz(450.0, 450.0, 0.0),
+        Transform::from_xyz(250.0, 520.0, 0.0),
     ));
     game_state.game_setting_handle = assets.load("default.setting.ron");
     game_state.game_setting_has_load = true;
